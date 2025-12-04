@@ -179,7 +179,7 @@ MD_ADDRESS=tcp://127.0.0.1:30011;DB_HOST=127.0.0.1;DB_USER=root;DB_PASSWORD=1234
 - 详见项目根目录 LICENSE 文件
 - 建议采用 MIT 或 Apache-2.0 开源协议
 
-> ✨ 本人首个 C++ 独立项目（部分得益于 Qwen / GitHub Copilot 辅助），欢迎拍砖、Star、Fork！
+> ✨ 本人首个 C++ 独立项目（得益于 Qwen / GitHub Copilot 辅助），欢迎拍砖、Star、Fork！
 
 完整项目见：[RV64G/FuturesCloudSentinel](https://github.com/RV64G/FuturesCloudSentinel)
 
