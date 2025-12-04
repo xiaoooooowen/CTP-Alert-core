@@ -1,67 +1,65 @@
-# CTP-Alert-core
+# CTP-Alert-core ðŸš€
 
-## ÏîÄ¿¼ò½é
+**é¡¹ç›®ç®€ä»‹**
 
-`CTP-Alert-core` ÊÇÒ»¸öÇáÁ¿¼¶µÄ C++ ·þÎñºËÐÄÄ£¿é£¬ÓÃÓÚ£º
+CTP-Alert-core æ˜¯ä¸€ä¸ªè½»é‡çº§çš„ C++ æœåŠ¡æ ¸å¿ƒæ¨¡å—ï¼Œä¸“ä¸ºäº‘ç«¯æœŸè´§é¢„è­¦è€Œè®¾è®¡ï¼Œå…·å¤‡å¦‚ä¸‹æ ¸å¿ƒèƒ½åŠ›ï¼š
 
-- ¶©ÔÄÆÚ»õÐÐÇé£¨Í¨¹ý CTP ÐÐÇé½Ó¿Ú£©£¬
-- ´Ó MySQL Êý¾Ý¿â¶ÁÈ¡ÓÃ»§ÅäÖÃµÄÔ¤¾¯µ¥£¬
-- ÔÚÂú×ã¼Û¸ñ»òÊ±¼äÌõ¼þÊ±´¥·¢Í¨Öª£¨¿ØÖÆÌ¨Êä³ö / ÓÊ¼þ£©¡£
+- ðŸ“Š è®¢é˜…æœŸè´§è¡Œæƒ…ï¼ˆåŸºäºŽ CTP è¡Œæƒ…æŽ¥å£ï¼‰
+- ðŸ—‚ï¸ ä»Ž MySQL æ•°æ®åº“è¯»å–ç”¨æˆ·é…ç½®çš„é¢„è­¦å•
+- â° å®žæ—¶ç›‘æŽ§ï¼Œè‡ªåŠ¨è§¦å‘é€šçŸ¥ï¼ˆæŽ§åˆ¶å°è¾“å‡º/é‚®ä»¶ï¼‰ï¼Œå¹¶æ›´æ–°æ•°æ®åº“çŠ¶æ€
 
-±¾²Ö¿âÊµÏÖÁËÐÐÇé½ÓÈë¡¢Ô¤¾¯ÅÐ¶Ï¡¢Êý¾Ý¿â×´Ì¬¸üÐÂµÈºËÐÄÂß¼­£¬²¢Ö§³ÖÁé»îÅäÖÃÊÐ³¡Êý¾ÝÁ¬½ÓÓëÊý¾Ý¿â²ÎÊý¡£
+æœ¬æ¨¡å—ä½œä¸º[æœŸè´§äº‘ç«¯é¢„è­¦ç³»ç»Ÿ](https://github.com/RV64G/FuturesCloudSentinel)çš„æ ¸å¿ƒç»„æˆéƒ¨åˆ†ï¼Œå®žçŽ°äº†è¡Œæƒ…æŽ¥å…¥ã€é¢„è­¦åˆ¤æ–­å’Œæ•°æ®ç®¡ç†ç­‰å…¨æµç¨‹ï¼Œæ”¯æŒçµæ´»çš„å¸‚åœº/æ•°æ®åº“å‚æ•°é…ç½®ï¼Œé€‚ç”¨äºŽç”Ÿäº§çŽ¯å¢ƒå’Œæœ¬åœ°å¼€å‘ã€‚
 
-> ? **ËµÃ÷**£º±¾Ä£¿éÊÇÊµÏ°ÆÚ¼ä¿ª·¢µÄ¡°ÆÚ»õÔÆ¶ËÔ¤¾¯ÏµÍ³¡±µÄÒ»²¿·Ö¡£ÍêÕûÏîÄ¿¼û [FuturesCloudSentinel](https://github.com/RV64G/FuturesCloudSentinel)¡£
+---
 
-------
+## ðŸ“‚ ç›®å½•ç»“æž„åŠå…³é”®æ–‡ä»¶
 
-## ¹Ø¼üÎÄ¼þËµÃ÷
+| æ–‡ä»¶/ç›®å½•                         | è¯´æ˜Ž                         |
+| --------------------------------- | ---------------------------- |
+| Alert-core/Config.h / Config.cpp  | é…ç½®åŠ è½½é€»è¾‘ï¼ˆçŽ¯å¢ƒå˜é‡ä¼˜å…ˆï¼Œå›žé€€è‡³ config.iniï¼‰ |
+| Alert-core/MduserHandler.h        | æ ¸å¿ƒï¼šè¡Œæƒ…å¤„ç†ã€é¢„è­¦åˆ¤æ–­ã€æ•°æ®åº“æ“ä½œã€é€šçŸ¥è§¦å‘ |
+| Alert-core/config.ini             | ç¤ºä¾‹é…ç½®ï¼ˆå¯ç”¨çŽ¯å¢ƒå˜é‡è¦†ç›–ï¼‰  |
+| Alert-core/main.cpp               | ç¨‹åºå…¥å£ï¼Œå¯åŠ¨æœåŠ¡            |
+| Source/                           | CTP SDK åŠå…¶ä»–äºŒæ–¹æ–‡ä»¶       |
 
-| ÎÄ¼þ                                 | ×÷ÓÃ                                                |
-| ------------------------------------ | --------------------------------------------------- |
-| `Alert-core/Config.h` / `Config.cpp` | ÅäÖÃ¼ÓÔØÂß¼­£ºÓÅÏÈ¶ÁÈ¡»·¾³±äÁ¿£¬»ØÍËÖÁ `config.ini` |
-| `Alert-core/MduserHandler.h`         | ºËÐÄÂß¼­£ºÐÐÇé´¦Àí¡¢Êý¾Ý¿â¶ÁÈ¡¡¢Ô¤¾¯ÅÐ¶ÏÓëÍ¨Öª´¥·¢  |
-| `Alert-core/config.ini`              | Ê¾ÀýÅäÖÃÎÄ¼þ£¨¿É±»»·¾³±äÁ¿¸²¸Ç£©                    |
-| `Alert-core/main.cpp`                | ³ÌÐòÈë¿Ú£¬µ÷ÓÃ `StartMarketService()` Æô¶¯·þÎñ      |
-| `Source/`                            | ÊµÏ°¹«Ë¾Ìá¹©µÄ CTP SDK ¼°Ïà¹Ø×ÊÁÏ                   |
+---
 
-------
+## âš¡ å¿«é€Ÿå¯åŠ¨ï¼ˆWindows + Visual Studio 2026ï¼‰
 
-## ¿ìËÙÆô¶¯£¨Windows + Visual Studio 2026£©
+> **å‰ç½®æ¡ä»¶**
+>
+> - ðŸ–¥ï¸ Windows 10/11
+> - ðŸ› ï¸ Visual Studio 2026ï¼ˆå·²å®‰è£… C++ æ¡Œé¢å¼€å‘çŽ¯å¢ƒï¼‰
+> - ðŸ—„ï¸ å¯è®¿é—®çš„ MySQL Server
+> - ðŸ”— æ­£ç¡®é…ç½® MySQL Connector/C++ çš„ include å’Œé“¾æŽ¥è·¯å¾„
 
-### Ç°ÌáÌõ¼þ
+**æ­¥éª¤å¦‚ä¸‹ï¼š**
 
-- Windows 10/11
-- **Visual Studio 2026**£¨Ðè°²×° C++ ×ÀÃæ¿ª·¢¹¤×÷¸ºÔØ£©
-- ¿É·ÃÎÊµÄ **MySQL Server** ÊµÀý
-- ÒÑÕýÈ·ÅäÖÃ **MySQL Connector/C++**£¨°üº¬Í·ÎÄ¼þÂ·¾¶ÓëÁ´½Ó¿â£©
+1. å…‹éš†é¡¹ç›®
 
-### Æô¶¯²½Öè
+    ```bash
+    git clone https://github.com/xiaoooooowen/CTP-Alert-core.git
+    ```
 
-1. ¿ËÂ¡²Ö¿â£º
+2. åœ¨ Visual Studio æ‰“å¼€é¡¹ç›®ï¼Œå¹¶å°† `Alert-core` ä¸‹æºç åŠ å…¥å·¥ç¨‹ã€‚
 
-   ```bash
-   git clone https://github.com/xiaoooooowen/CTP-Alert-core.git
-   ```
+3. é…ç½®ä¾èµ–ï¼ˆè§ C++ å·¥ç¨‹å±žæ€§é¡µï¼‰ï¼š
 
-2. ÔÚ Visual Studio ÖÐ´ò¿ªÏîÄ¿£¬½« `Alert-core` Ä¿Â¼ÏÂµÄÔ´ÎÄ¼þ¼ÓÈë¹¤³Ì¡£
+    - `C/C++ -> é™„åŠ åŒ…å«ç›®å½•`ï¼šæ·»åŠ  MySQL Connector/C++ çš„ `include` è·¯å¾„
+    - `é“¾æŽ¥å™¨ -> é™„åŠ åº“ç›®å½•`ï¼šæ·»åŠ  `lib64/vs14`ï¼ˆæˆ–ä½ çš„ VS ç‰ˆæœ¬ç›®å½•ï¼‰
+    - `é“¾æŽ¥å™¨ -> è¾“å…¥ -> é™„åŠ ä¾èµ–é¡¹`ï¼šæ·»åŠ  `mysqlcppconn.lib` å’Œ `mysqlcppconn8.lib`
 
-3. ÔÚÏîÄ¿ÊôÐÔÖÐÅäÖÃ£º
+4. è®¾ç½®é…ç½®å‚æ•°ï¼ˆæŽ¨èç”¨çŽ¯å¢ƒå˜é‡ï¼Œä¹Ÿå¯æ‰‹åŠ¨ç¼–è¾‘ `config.ini`ï¼‰
 
-   - **C/C++ ¡ú ¸½¼Ó°üº¬Ä¿Â¼**£ºÌí¼Ó MySQL Connector/C++ µÄ `include` Â·¾¶
-   - **Á´½ÓÆ÷ ¡ú ¸½¼Ó¿âÄ¿Â¼**£ºÌí¼Ó `lib64/vs14`£¨»ò¶ÔÓ¦ VS °æ±¾Ä¿Â¼£©
-   - **Á´½ÓÆ÷ ¡ú ÊäÈë ¡ú ¸½¼ÓÒÀÀµÏî**£ºÌí¼Ó `mysqlcppconn.lib` ºÍ `mysqlcppconn8.lib`
+5. ç¼–è¯‘è¿è¡Œï¼ˆF5ï¼‰ï¼Œæˆ–åœ¨â€œè°ƒè¯•->çŽ¯å¢ƒå˜é‡â€é‡Œå¡«å†™å‚æ•°ï¼Œå†å¯åŠ¨è°ƒè¯•
 
-4. ÅäÖÃÁ¬½Ó²ÎÊý£¨ÍÆ¼öÊ¹ÓÃ»·¾³±äÁ¿£¬Ò²¿ÉÐÞ¸Ä `config.ini`£©¡£
+> å‚è€ƒï¼š[VS2022 é…ç½® MySQL C++ Connectorï¼ˆCSDNï¼‰](https://blog.csdn.net/weixin_74027669/article/details/137203874)
 
-5. ¹¹½¨²¢ÔËÐÐ£¨°´ F5£¬»òÔÚ **Debugging** ÉèÖÃÖÐÅäÖÃºóÔÙÆô¶¯£©¡£
+---
 
-> ? **²Î¿¼½Ì³Ì**£º[VS2022 ÅäÖÃ MySQL C++ Connector£¨CSDN£©](https://blog.csdn.net/weixin_74027669/article/details/137203874)
+## âš™ï¸ é…ç½®è¯´æ˜Žï¼ˆä¼˜å…ˆçº§ï¼šçŽ¯å¢ƒå˜é‡ > config.ini > é»˜è®¤å€¼ï¼‰
 
-------
-
-## ÅäÖÃ·½Ê½£¨ÓÅÏÈ¼¶£º»·¾³±äÁ¿ > config.ini > Ä¬ÈÏÖµ£©
-
-### Ê¾Àý `Alert-core/config.ini`
+**æ ·ä¾‹ `Alert-core/config.ini`:**
 
 ```ini
 [Database]
@@ -78,12 +76,12 @@ UserID=
 Password=
 ```
 
-### Ö§³ÖµÄ»·¾³±äÁ¿£¨ÍÆ¼öÓÃÓÚÉú²ú»·¾³£©
+**å¯ç”¨çŽ¯å¢ƒå˜é‡ï¼ˆæŽ¨èï¼‰ï¼š**
 
-- **ÐÐÇéÁ¬½Ó**£º`MD_ADDRESS`, `MD_BROKERID`, `MD_USERID`, `MD_PASSWORD`
-- **Êý¾Ý¿âÁ¬½Ó**£º`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_SCHEMA`
+- ðŸ› ï¸ è¡Œæƒ…è¿žæŽ¥ï¼š`MD_ADDRESS`ï¼Œ`MD_BROKERID`ï¼Œ`MD_USERID`ï¼Œ`MD_PASSWORD`
+- ðŸ—„ï¸ æ•°æ®åº“è¿žæŽ¥ï¼š`DB_HOST`ï¼Œ`DB_PORT`ï¼Œ`DB_USER`ï¼Œ`DB_PASSWORD`ï¼Œ`DB_SCHEMA`
 
-#### Windows CMD Ê¾Àý
+**Windows CMD ç¤ºä¾‹ï¼š**
 
 ```cmd
 set MD_ADDRESS=tcp://your-md-host:30011
@@ -91,166 +89,100 @@ set DB_HOST=192.168.x.x
 start Alert-core\bin\Debug\Alert-core.exe
 ```
 
-#### Visual Studio µ÷ÊÔÊ±ÉèÖÃ»·¾³±äÁ¿
+**VS è°ƒè¯•çŽ¯å¢ƒå˜é‡é…ç½®ï¼š**
+é¡¹ç›®å±žæ€§ -> `Debugging -> Environment`ï¼Œè¾“å…¥ï¼š
 
-- ÏîÄ¿ÊôÐÔ ¡ú **Debugging** ¡ú **Environment**
+```
+MD_ADDRESS=tcp://127.0.0.1:30011;DB_HOST=127.0.0.1;DB_USER=root;DB_PASSWORD=1234
+```
 
-- ÌîÈë£¨·ÖºÅ·Ö¸ô£©£º
+> âš ï¸ **å®‰å…¨æé†’**ï¼šä¸è¦æŠŠç”Ÿäº§å¯†ç å†™è¿›ä»£ç ä»“åº“ï¼å¼ºçƒˆå»ºè®®ç”¨çŽ¯å¢ƒå˜é‡æˆ–å®‰å…¨æœåŠ¡ç»Ÿä¸€ç®¡ç†å‡­è¯ã€‚
 
-  ```
-  MD_ADDRESS=tcp://127.0.0.1:30011;DB_HOST=127.0.0.1;DB_USER=root;DB_PASSWORD=1234
-  ```
+---
 
-> ? **°²È«½¨Òé**£º**ÇÐÎð½«ÕæÊµÆ¾Ö¤Ìá½»µ½°æ±¾¿ØÖÆÏµÍ³**¡£ÓÅÏÈÊ¹ÓÃ»·¾³±äÁ¿»ò»úÃÜ¹ÜÀí·þÎñ£¨Èç HashiCorp Vault¡¢Azure Key Vault£©¡£
+## ðŸ› ï¸ é¡¹ç›®è¿è¡Œæµç¨‹ç®€è¿°
 
-------
+1. ðŸš€ åŠ è½½é…ç½® -> è¿žæŽ¥è¡Œæƒ…å‰ç½®æœº  
+2. ðŸ”— è‡ªåŠ¨ç™»å½•ï¼ˆå¦‚æžœå·²é…ç½®å‡­è¯ï¼‰  
+3. â™»ï¸ å¯åŠ¨åŽå°çº¿ç¨‹ï¼Œæ¯ 3 ç§’æ‹‰å–ä¸€æ¬¡æ•°æ®åº“ `state=0` çš„å¾…è§¦å‘é¢„è­¦å•  
+4. ðŸ“¡ è¡Œæƒ…å›žè°ƒæ—¶æ‰§è¡Œé¢„è­¦åˆ¤å®š  
+    - å¦‚ï¼šæœ€æ–°ä»·æ ¼ â‰¥ ä¸Šé™ï¼Œâ‰¤ ä¸‹é™ï¼Œæˆ–è¾¾åˆ°å®šæ—¶è§¦å‘ç‚¹  
+5. âœ… ç¬¦åˆæ¡ä»¶å³ï¼š
+    - æŽ§åˆ¶å°è¾“å‡ºæ—¥å¿—
+    - ðŸ“§ é‚®ä»¶é€šçŸ¥ï¼ˆå¦‚å¯ç”¨ï¼‰
+    - ðŸ“ æ•°æ®åº“æ ‡è®°å·²è§¦å‘
+    - ðŸ§¹ ä»Žå†…å­˜ç¼“å­˜ç§»é™¤
 
-## ÔËÐÐÐÐÎªÕªÒª
+> **Tips:** æ”¯æŒé¢„è­¦â€œä»·æ ¼è§¦å‘â€å’Œâ€œå®šæ—¶è§¦å‘â€ä¸¤ç§æ¨¡å¼ã€‚
 
-1. Æô¶¯ºó¼ÓÔØÅäÖÃ£¬Á¬½ÓÐÐÇéÇ°ÖÃ»ú£»
+---
 
-2. ÈôÅäÖÃÁËµÇÂ¼Æ¾Ö¤£¬Ôò×Ô¶¯·¢ÆðµÇÂ¼ÇëÇó£»
+## ðŸ¤” å¸¸è§æ•…éšœæŽ’æŸ¥
 
-3. Æô¶¯¶ÀÁ¢Ïß³Ì£¬**Ã¿ 3 Ãë**´ÓÊý¾Ý¿â¼ÓÔØ `state=0` µÄÎ´´¥·¢Ô¤¾¯µ¥µ½ÄÚ´æ»º´æ£»
+| â“ é—®é¢˜          | ðŸ•µï¸ å¯èƒ½åŽŸå›             | ðŸ› ï¸ è§£å†³å»ºè®®                                    |
+| ----------------- | --------------------- | --------------------------------------------- |
+| ä¸èƒ½è¿žè¡Œæƒ…å‰ç½®æœº  | åœ°å€/ç½‘ç»œ/é˜²ç«å¢™é—®é¢˜  | æ£€æŸ¥ MD_ADDRESSï¼Œå°è¯• `telnet` ç›®æ ‡ä¸»æœº         |
+| ç™»å½•å¤±è´¥         | è´¦æˆ·/å¯†ç é”™è¯¯         | å¯¹ç…§äº¤æ˜“æ‰€æä¾›çš„æµ‹è¯•è´¦å·                        |
+| æ— æ³•è¿žæ•°æ®åº“      | é…ç½®ã€æœåŠ¡ã€Connectorå¼‚å¸¸ | æ£€æŸ¥é…ç½®ï¼Œä¿è¯ MySQL Connector å’Œè¿œç«¯è®¿é—®æ­£å¸¸   |
+| é¢„è­¦æ²¡è§¦å‘        | æ—¶é—´æ ¼å¼é”™è¯¯ã€æ¡ä»¶ä¸æ»¡è¶³ | æ£€æŸ¥æ•°æ®åº“å­—æ®µæ ¼å¼ä¸º `YYYY-MM-DD HH:MM:SS`      |
 
-4. ÊÕµ½ÐÐÇé»Øµ÷Ê±£¬Ö´ÐÐ 
+---
 
-   ```
-   CheckAlert()
-   ```
+## ðŸŒ æŠ€æœ¯æž¶æž„ä¸Žäº®ç‚¹
 
-    ÅÐ¶ÏÊÇ·ñÂú×ãÒÔÏÂÈÎÒ»Ìõ¼þ£º
+- **ðŸ”§ çµæ´»é…ç½®**ï¼šçŽ¯å¢ƒå˜é‡ä¼˜å…ˆï¼Œå…¼å®¹æœ¬åœ°è°ƒè¯•åŠäº‘ç«¯éƒ¨ç½²
+- **ðŸ“ˆ è¡Œä¸šæ ‡å‡†**ï¼šCTP SDK ç›´è¿žæœŸè´§å¸‚åœº
+- **ðŸ—„ï¸ æ•°æ®åº“é©±åŠ¨**ï¼šMySQL Connector/C++ï¼Œé«˜æ•ˆå®‰å…¨
+- **ðŸ”’ çº¿ç¨‹å®‰å…¨**ï¼šè¡Œæƒ…ä¸Žé¢„è­¦ç¼“å­˜ç”¨ mutex æŠ¤èˆªï¼ŒåŽå°å¾ªçŽ¯å®šæ—¶åŠ è½½
+- **ðŸ“¡ å¤šé€šçŸ¥æ¸ é“**ï¼šé€šè¿‡ INotifier æŽ¥å£æ”¯æŒåŽç»­æ‰©å±•çŸ­ä¿¡/Webhook
+- **ðŸ’ª å®¹é”™å‡†å¤‡**ï¼šè¿žæŽ¥ã€ç™»å½•çŠ¶æ€è¿½è¸ªï¼Œä¸ºåŽç»­é‡è¿žæ‰“ä¸‹åŸºç¡€
 
-   - ×îÐÂ¼Û¸ñ ¡Ý ÉÏÏÞ »ò ¡Ü ÏÂÏÞ
-   - µ±Ç°Ê±¼ä ¡Ý Ô¤Éè´¥·¢Ê±¼ä£¨¸ñÊ½£º`YYYY-MM-DD HH:MM:SS`£©
+---
 
-5. ´¥·¢ºó£º
+## âš–ï¸ æŠ€æœ¯é€‰åž‹è§£è¯»
 
-   - ¿ØÖÆÌ¨´òÓ¡ÈÕÖ¾
-   - µ÷ÓÃÓÊ¼þÍ¨Öª£¨ÈôÆôÓÃ£©
-   - ¸üÐÂÊý¾Ý¿â¼ÇÂ¼Îª `state=1`
-   - ´ÓÄÚ´æ»º´æÖÐÒÆ³ý£¬±ÜÃâÖØ¸´´¥·¢
+| âš™ï¸ ç»„ä»¶          | ðŸ¤” é€‰åž‹           | ðŸ› ï¸ ç†ç”±                            |
+| --------- | ----------------- | --------------------------------- |
+| è¡Œæƒ…æŽ¥å…¥   | CTP SDK           | å›½å†…æœŸè´§ä¸»æµæ ‡å‡†ï¼Œä½Žå»¶è¿Ÿã€é«˜å…¼å®¹  |
+| æ•°æ®åº“    | MySQL Connector/C++| åŽŸç”Ÿ C++ æ”¯æŒï¼Œå®‰å…¨é«˜æ•ˆ          |
+| å¹¶å‘æ¨¡åž‹   | C++11 çº¿ç¨‹+äº’æ–¥é” | é«˜æ€§èƒ½ã€æ— ä¸‰æ–¹ä¾èµ–               |
+| é…ç½®åŠ è½½   | INI + çŽ¯å¢ƒå˜é‡    | ç®€å•å¯é ï¼Œé€‚åˆ CI/CD å’Œå®¹å™¨éƒ¨ç½²   |
+| æ—¥å¿—è¾“å‡º   | printfï¼ˆå½“å‰ï¼‰    | ä¾¿äºŽè°ƒè¯•ï¼Œå»ºè®®ç”Ÿäº§ç”¨ spdlog       |
 
-------
+---
 
-## ²¿ÊðÓëµ÷ÊÔÒªµã
+## ðŸ•¹ï¸ æ”¹è¿›å»ºè®®ï¼ˆæ¬¢è¿Žå‚ä¸Žï¼‰
 
-- È·±£ **CTP ¶¯Ì¬¿â**£¨Èç `thostmduserapi.dll`£©ºÍ **MySQL Connector ÔËÐÐÊ± DLL** Î»ÓÚ¿ÉÖ´ÐÐÎÄ¼þÄ¿Â¼»òÏµÍ³ `PATH` ÖÐ¡£
-- ÍÆ¼öÔÚ CI/CD »òÈÝÆ÷»·¾³ÖÐÍ¨¹ý»·¾³±äÁ¿×¢ÈëÃô¸ÐÅäÖÃ¡£
-- µ÷ÊÔÊ±¿ÉÁÙÊ±Ê¹ÓÃ `config.ini`£¬µ«Éú²ú»·¾³Îñ±Ø½ûÓÃÃ÷ÎÄÃÜÂë¡£
+- **å¼‚æ­¥ I/O**ï¼šæ•°æ®åº“ä¸Žé€šçŸ¥èµ°çº¿ç¨‹æ± ï¼Œé˜²æ­¢å›žè°ƒçº¿ç¨‹é˜»å¡ž
+- **æ•°æ®åº“è¿žæŽ¥æ± **ï¼šå‡å°‘é¢‘ç¹åˆ›å»ºé”€æ¯
+- **å¼¹æ€§å®¹é”™**ï¼šå¯é…ç½®é‡è¯•æœºåˆ¶ã€ç†”æ–­ã€é€€é¿ç®—æ³•
+- **æ—¥å¿—å‡çº§**ï¼šæŽ¨èé›†æˆ spdlogï¼Œæ”¯æŒæ»šåŠ¨ä¸Žåˆ†çº§
+- **ç›‘æŽ§é›†æˆ**ï¼šæ”¯æŒ Prometheus æŒ‡æ ‡å¯¼å‡º
+- **çŽ°ä»£åŒ–é…ç½®**ï¼šæ”¯æŒ JSON/YAML æ ¼å¼ï¼ˆå¦‚ nlohmann/jsonï¼‰
+- **å®‰å…¨å¢žå¼º**ï¼šæœºå¯†äº¤ç”±ä¸“ä¸šå­˜å‚¨ï¼Œä¸æš´éœ²æ˜Žæ–‡
+- **æ ¸å¿ƒå•å…ƒæµ‹è¯•**ï¼šå»ºè®®ç”¨ GoogleTest / Catch2
 
-------
+---
 
-## ³£¼ûÎÊÌâÅÅ²é
+## ðŸ’¡ å¼€å‘æŒ‡å—
 
-| ÎÊÌâ               | ¿ÉÄÜÔ­Òò                                            | ½â¾ö·½°¸                                                     |
-| ------------------ | --------------------------------------------------- | ------------------------------------------------------------ |
-| ÎÞ·¨Á¬½ÓÐÐÇéÇ°ÖÃ»ú | µØÖ·´íÎó¡¢ÍøÂç²»Í¨¡¢·À»ðÇ½À¹½Ø                      | ¼ì²é `MD_ADDRESS`£¬²âÊÔ telnet Á¬Í¨ÐÔ                        |
-| µÇÂ¼Ê§°Ü           | BrokerID / UserID / Password ´íÎó                   | ºË¶Ô½»Ò×Ëù·ÖÅäµÄ²âÊÔÕËºÅ                                     |
-| ÎÞ·¨Á¬½ÓÊý¾Ý¿â     | DB ÅäÖÃ´íÎó¡¢MySQL ·þÎñÎ´Æô¶¯¡¢Connector Î´ÕýÈ·Á´½Ó | °´ CSDN ½Ì³Ì¼ì²é VS ÅäÖÃ£¬È·ÈÏ MySQL ¿ÉÔ¶³Ì·ÃÎÊ              |
-| Ô¤¾¯²»´¥·¢         | Ê±¼ä¸ñÊ½²»·û¡¢ÄÚ´æ»º´æÎ´¼ÓÔØ¡¢Ìõ¼þÎ´Âú×ã            | ¼ì²é `alert_order.trigger_time` ÊÇ·ñÎª `YYYY-MM-DD HH:MM:SS` |
+1. å…ˆåˆ›å»º Issue æè¿°éœ€æ±‚æˆ– Bug
+2. ä»Ž main åˆ†æ”¯æ–°å»ºç‰¹æ€§åˆ†æ”¯
+3. å¼€å‘æäº¤ Pull Request
+4. PR è¯·ç®€æ˜Žå†™æ˜Žæ”¹åŠ¨å†…å®¹å’Œæµ‹è¯•æ–¹å¼
+5. æŒ‰ç…§ `.editorconfig` / `CONTRIBUTING.md` è§„èŒƒï¼ˆå¦‚æœ‰ï¼‰
 
-------
+---
 
-## ¼¼ÊõÁÁµã
+## ðŸŽ“ è®¸å¯è¯ä¸Žä½œè€…
 
-- ? **Áé»îÅäÖÃ»úÖÆ**£º»·¾³±äÁ¿ÓÅÏÈ£¬¼æÈÝ±¾µØµ÷ÊÔÓëÈÝÆ÷»¯²¿Êð¡£
+- è¯¦è§é¡¹ç›®æ ¹ç›®å½• LICENSE æ–‡ä»¶
+- å»ºè®®é‡‡ç”¨ MIT æˆ– Apache-2.0 å¼€æºåè®®
 
-- ? **ÐÐÒµ±ê×¼¶Ô½Ó**£º»ùÓÚ **CTP SDK£¨CThostFtdcMdApi£©**£¬È·±£Óë¹úÄÚÆÚ»õ½»Ò×Ëù¼æÈÝ¡£
+> âœ¨ æœ¬äººé¦–ä¸ª C++ ç‹¬ç«‹é¡¹ç›®ï¼ˆéƒ¨åˆ†å¾—ç›ŠäºŽ Qwen / GitHub Copilot è¾…åŠ©ï¼‰ï¼Œæ¬¢è¿Žæ‹ç –ã€Starã€Forkï¼
 
-- ? **Ö±½ÓÊý¾Ý¿â²Ù×÷**£ºÊ¹ÓÃ **MySQL Connector/C++**£¨JDBC ·ç¸ñ£©£¬±ãÓÚ¼¯³ÉÏÖÓÐÔËÎ¬ÌåÏµ¡£
+å®Œæ•´é¡¹ç›®è§ï¼š[RV64G/FuturesCloudSentinel](https://github.com/RV64G/FuturesCloudSentinel)
 
-- ? 
+---
 
-  Ïß³Ì°²È«Éè¼Æ
-
-  £º
-
-  - SDK »Øµ÷ÔËÐÐÔÚ¶ÀÁ¢Ïß³Ì£¬±ÜÃâ×èÈû£»
-  - ÐÐÇé»º´æ `m_lastPrices` ÓëÔ¤¾¯»º´æ `m_alertMap` Ê¹ÓÃ»¥³âËø±£»¤£»
-  - Ô¤¾¯¼ÓÔØÓÉºóÌ¨Ïß³ÌÖÜÆÚÖ´ÐÐ£¬±ÜÃâÔÚ»Øµ÷ÖÐ½øÐÐÖØ I/O¡£
-
-- ? **¿ÉÀ©Õ¹Í¨Öª³éÏó**£ºÍ¨¹ý `INotifier` ½Ó¿ÚÖ§³ÖÓÊ¼þ¡¢¶ÌÐÅ¡¢Webhook µÈ¶àÖÖÍ¨Öª·½Ê½¡£
-
-- ? **ÈÝ´í»ù´¡**£º¾ß±¸Á¬½Ó×´Ì¬¸ú×Ù£¨`m_isConnected` / `m_isLoggedIn`£©£¬ÎªºóÐøÊµÏÖÖØÁ¬²ßÂÔ´òÏÂ»ù´¡¡£
-
-------
-
-## ¹Ø¼ü¼¼ÊõÑ¡ÐÍÀíÓÉ
-
-| ×é¼þ       | Ñ¡ÐÍ                        | ÀíÓÉ                                         |
-| ---------- | --------------------------- | -------------------------------------------- |
-| ÐÐÇé½ÓÈë   | CTP SDK (`CThostFtdcMdApi`) | ÐÐÒµÊÂÊµ±ê×¼£¬µÍÑÓ³Ù¡¢ÊÂ¼þÇý¶¯£¬Ö§³ÖÉî¶ÈÐÐÇé |
-| Êý¾Ý¿âÇý¶¯ | MySQL Connector/C++         | ¹Ù·½Ô­Éú C++ Ö§³Ö£¬ÀàÐÍ°²È«£¬Ö§³ÖÔ¤±àÒëÓï¾ä  |
-| ²¢·¢Ä£ÐÍ   | C++11 Ô­ÉúÏß³Ì/»¥³âËø       | ÇáÁ¿¡¢ÎÞµÚÈý·½ÒÀÀµ£¬Âú×ãµÍÑÓ³ÙÒªÇó           |
-| ÅäÖÃ¹ÜÀí   | INI + »·¾³±äÁ¿              | ¼òµ¥¿É¿¿£¬Ò×ÓÚ CI/CD ºÍÈÝÆ÷×¢Èë              |
-| ÈÕÖ¾Êä³ö   | `printf`£¨µ±Ç°£©            | ¿ìËÙµ÷ÊÔ£»**½¨ÒéÉú²úÌæ»»Îª `spdlog`**        |
-
-------
-
-## ÒµÎñÁ÷³Ì£¨´ÓÆô¶¯µ½´¥·¢£©
-
-1. **Æô¶¯**  
-   - `main()` µ÷ÓÃ `StartMarketService()`  
-   - `CMduserHandler` ¹¹ÔìÊ±¼ÓÔØÅäÖÃ£¨»·¾³±äÁ¿ ¡ú `config.ini`£©
-2. **Á¬½ÓÓëµÇÂ¼**  
-   - ´´½¨ `CThostFtdcMdApi`£¬×¢²á»Øµ÷£¬µ÷ÓÃ `Init()`  
-   - `OnFrontConnected()` ´¥·¢ºó£¬ÈôÅäÖÃÁËÆ¾Ö¤£¬Ôòµ÷ÓÃ `ReqUserLogin()`  
-   - `OnRspUserLogin()` ³É¹¦ºóÉèÖÃ `m_isLoggedIn = true`
-3. **¶©ÔÄÐÐÇé**  
-   - µ÷ÓÃ `subscribe(contracts)`£¬½«ºÏÔ¼ÁÐ±í×ªÎª `char*[]` ²¢µ÷ÓÃ `SubscribeMarketData()`  
-   - Ê§°ÜÊ±×Ô¶¯ÖØÊÔ
-4. **Ô¤¾¯¼ÓÔØ£¨ºóÌ¨Ïß³Ì£©**  
-   - Æô¶¯ `StartAlertReloadThread()`£¬Ã¿ 3 ÃëÖ´ÐÐ `ReloadAlertsFromDB()`  
-   - ¼ÓÔØ `state=0` µÄÔ¤¾¯µ¥ÖÁ `m_alertMap`
-5. **ÐÐÇé´¦ÀíÓëÅÐ¶Ï**  
-   - `OnRtnDepthMarketData()` »Øµ÷¸üÐÂ `m_lastPrices`£¨¼ÓËø£©  
-   - µ÷ÓÃ `CheckAlert(symbol, price)` ÅÐ¶ÏÊÇ·ñ´¥·¢
-6. **´¥·¢ÓëÂä¿â**  
-   - Í¨¹ý `INotifier` ·¢ËÍÍ¨Öª  
-   - µ÷ÓÃ `MarkAlertTriggered(orderId)` ¸üÐÂ DB ×´Ì¬Îª `state=1`  
-   - ´ÓÄÚ´æ»º´æÖÐÒÆ³ý¸ÃÌõÄ¿
-7. **¶ÏÁ¬´¦Àí£¨»ù´¡£©**  
-   - `OnFrontDisconnected()` ÇåÀí×´Ì¬  
-   - **´ýÔöÇ¿**£ºÊµÏÖÖ¸ÊýÍË±ÜÖØÁ¬Óë×Ô¶¯ÖØµÇÂ¼
-
-------
-
-## ¸Ä½ø½¨Òé£¨¶ÌÆÚ / ÖÐÆÚ£©
-
-- **Òì²½»¯ I/O**£º½«Êý¾Ý¿â²Ù×÷ÓëÓÊ¼þ·¢ËÍ·ÅÈë¹¤×÷¶ÓÁÐ + Ïß³Ì³Ø£¬±ÜÃâ×èÈû SDK »Øµ÷Ïß³Ì¡£
-- **Êý¾Ý¿âÁ¬½Ó¸´ÓÃ**£ºÒýÈëÁ¬½Ó³Ø£¬¼õÉÙÆµ·±´´½¨/Ïú»ÙÁ¬½ÓµÄ¿ªÏú¡£
-- **ÔöÇ¿ÈÝ´í**£ºÊµÏÖ¿ÉÅäÖÃµÄÖØÁ¬²ßÂÔ£¨×î´óÖØÊÔ´ÎÊý¡¢ÍË±ÜËã·¨¡¢ÈÛ¶Ï»úÖÆ£©¡£
-- **ÈÕÖ¾Éý¼¶**£ºÌæ»» `printf` Îª `spdlog`£¬Ö§³ÖÈÕÖ¾¼¶±ð¡¢ÎÄ¼þ¹ö¶¯Óë½á¹¹»¯Êä³ö¡£
-- **¼à¿Ø¼¯³É**£º±©Â¶ Prometheus Ö¸±ê£¨Èç´¥·¢´ÎÊý¡¢Á¬½Ó×´Ì¬¡¢ÑÓ³Ù£©¡£
-- **ÅäÖÃÏÖ´ú»¯**£ºÖ§³Ö JSON/YAML£¨Ê¹ÓÃ `nlohmann/json` »ò `yaml-cpp`£©¡£
-- **°²È«¼Ó¹Ì**£ºÃô¸ÐÐÅÏ¢½»ÓÉ»úÃÜ¹ÜÀíÏµÍ³ÍÐ¹Ü¡£
-- **²âÊÔ¸²¸Ç**£ºÎªºËÐÄÂß¼­£¨`Config`¡¢`CheckAlert`£©±àÐ´µ¥Ôª²âÊÔ£¨GoogleTest / Catch2£©¡£
-
-------
-
-## ¿ª·¢Óë¹±Ï×
-
-- ½¨ÒéÁ÷³Ì
-
-  £º
-
-  1. ´´½¨ Issue ÃèÊöÐèÇó»òÎÊÌâ
-  2. ´Ó `main` ·ÖÖ§À­³öÐÂÌØÐÔ·ÖÖ§
-  3. ¿ª·¢Íê³ÉºóÌá½» Pull Request
-  4. PR ÃèÊöÖÐÐè°üº¬¸Ä¶¯ËµÃ÷Óë²âÊÔ·½·¨
-
-- Çë×ñÑ­ÏîÄ¿±àÂë¹æ·¶£¨ÈçÓÐ `.editorconfig` »ò `CONTRIBUTING.md`£¬Çë²ÎÕÕÖ´ÐÐ£©¡£
-
-------
-
-## Ðí¿ÉÖ¤Óë×÷Õß
-
-- Çë²é¿´²Ö¿â¸ùÄ¿Â¼µÄ `LICENSE` ÎÄ¼þ¡£
-- ÈôÉÐÎ´Ö¸¶¨Ðí¿ÉÖ¤£¬½¨ÒéÑ¡Ôñ **MIT** »ò **Apache-2.0** ¿ªÔ´Ð­Òé¡£
-
-> ? **×÷Õß±¸×¢**£ºÕâÊÇ±¾ÈËÊ×´Î¶ÀÁ¢Íê³ÉµÄ C++ ÏîÄ¿£¨²¿·Ö½èÖú Qwen / GitHub Copilot ¸¨Öú£©£¬»¶Ó­ÅúÆÀÖ¸Õý£¡
-
-------
-
-**ÍêÕûÏîÄ¿µØÖ·**£º[RV64G/FuturesCloudSentinel](https://github.com/RV64G/FuturesCloudSentinel)
+**æœ¬ README ä½¿ç”¨äº†é€‚é‡è¡¨æƒ…ç¬¦å·ï¼Œæå‡è¶£å‘³æ€§ä¸Žæ¸…æ™°åº¦ï¼Œé€‚é…å„ç±»å¹³å°ä¸‹çš„æ¸²æŸ“æ•ˆæžœã€‚** ðŸ˜„
