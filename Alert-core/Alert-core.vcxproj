@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="EmailNotifier.h" />
     <ClInclude Include="MarketSeverce.h" />
     <ClInclude Include="MduserHandler.h" />
@@ -153,12 +154,14 @@
     <ClInclude Include="tradeapi\ThostFtdcUserApiStruct.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cppConfig.cpp" />
     <ClCompile Include="EmailNotifier.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarketSeverce.cpp" />
     <ClCompile Include="MduserHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.ini" />
     <None Include="tradeapi\error.dtd" />
   </ItemGroup>
   <ItemGroup>

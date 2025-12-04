@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include "tradeapi/ThostFtdcMdApi.h"
 #include "EmailNotifier.h"
 #include "Config.h"
@@ -34,7 +34,7 @@ public:
 class ConsoleNotifier : public INotifier {
 public:
     void Notify(const std::string& account, const std::string& instrument, double price, const std::string& message) override {
-        printf("[ALERT] ç”¨æˆ·=%s åˆçº¦=%s ä»·æ ¼=%.2f è§¦å‘åŸå› =%s\n",
+        printf("[ALERT] ÓÃ»§=%s ºÏÔ¼=%s ¼Û¸ñ=%.2f ´¥·¢Ô­Òò=%s\n",
             account.c_str(), instrument.c_str(), price, message.c_str());
         fflush(stdout);
     }
@@ -48,20 +48,20 @@ public:
     EmailNotifierWrapper(std::shared_ptr<EmailNotifier> email) : email_notifier(email) {}
 
     void Notify(const std::string& account, const std::string& instrument, double price, const std::string& message) override {
-        // æ§åˆ¶å°è¾“å‡º
-        printf("[ALERT] ç”¨æˆ·=%s åˆçº¦=%s ä»·æ ¼=%.2f è§¦å‘åŸå› =%s\n",
+        // ¿ØÖÆÌ¨Êä³ö
+        printf("[ALERT] ÓÃ»§=%s ºÏÔ¼=%s ¼Û¸ñ=%.2f ´¥·¢Ô­Òò=%s\n",
             account.c_str(), instrument.c_str(), price, message.c_str());
         fflush(stdout);
 
-        // å‘é€é‚®ä»¶é€šçŸ¥åˆ°ç”¨æˆ·é‚®ç®±
+        // ·¢ËÍÓÊ¼şÍ¨Öªµ½ÓÃ»§ÓÊÏä
         email_notifier->SendAlertEmail(account, instrument, price, message);
     }
 };
 
-// ------------------------- DB è¿æ¥ -------------------------
+// ------------------------- DB Á¬½Ó -------------------------
 static sql::Connection* GetConn()
 {
-    // ç¡®ä¿é…ç½®å·²åŠ è½½
+    // È·±£ÅäÖÃÒÑ¼ÓÔØ
     Config& cfg = Config::Instance();
 
     std::string host = cfg.dbHost;
@@ -80,11 +80,11 @@ static sql::Connection* GetConn()
     return conn;
 }
 
-// ------------------------- é¢„è­¦ç»“æ„ä½“ -------------------------
+// ------------------------- Ô¤¾¯½á¹¹Ìå -------------------------
 struct AlertOrder
 {
     long orderId;
-    string account;     // æ·»åŠ  account å­—æ®µ
+    string account;     // Ìí¼Ó account ×Ö¶Î
     string symbol;
     double max_price;
     double min_price;
@@ -93,7 +93,7 @@ struct AlertOrder
 };
 
 // =========================================================
-// =============      CMduserHandler ä¸»ä½“       =============
+// =============      CMduserHandler Ö÷Ìå       =============
 // =========================================================
 
 class CMduserHandler : public CThostFtdcMdSpi {
@@ -105,19 +105,19 @@ private:
 
     std::shared_ptr<INotifier> m_notifier;
 
-    // æœ€æ–°è¡Œæƒ…ç¼“å­˜
+    // ×îĞÂĞĞÇé»º´æ
     unordered_map<string, double> m_lastPrices;
     mutex m_priceMutex;
 
-    // ä»æ•°æ®åº“åŠ è½½çš„é¢„è­¦ç¼“å­˜
+    // ´ÓÊı¾İ¿â¼ÓÔØµÄÔ¤¾¯»º´æ
     unordered_map<string, vector<AlertOrder>> m_alertMap;
     mutex m_alertMutex;
 
-    // çº¿ç¨‹æ§åˆ¶
+    // Ïß³Ì¿ØÖÆ
     atomic<bool> m_runAlertReload{ false };
     thread m_reloadThread;
 
-    // è¿æ¥/ç™»å½• çŠ¶æ€ä¸è¯·æ±‚ id
+    // Á¬½Ó/µÇÂ¼ ×´Ì¬ÓëÇëÇó id
     atomic<bool> m_isConnected{ false };
     atomic<bool> m_isLoggedIn{ false };
     int m_reqId{ 0 };
@@ -127,7 +127,7 @@ public:
     CMduserHandler()
     {
         m_notifier = make_shared<ConsoleNotifier>();
-        // åŠ è½½é…ç½®ï¼ˆé»˜è®¤ä» config.ini æˆ–ç¯å¢ƒå˜é‡ï¼‰
+        // ¼ÓÔØÅäÖÃ£¨Ä¬ÈÏ´Ó config.ini »ò»·¾³±äÁ¿£©
         Config::Instance().Load();
     }
 
@@ -146,7 +146,7 @@ public:
     }
 
     // =====================================================
-    // =============== 1. å¯åŠ¨/åœæ­¢ DB é¢„è­¦åŠ è½½çº¿ç¨‹ ============
+    // =============== 1. Æô¶¯/Í£Ö¹ DB Ô¤¾¯¼ÓÔØÏß³Ì ============
     // =====================================================
     void StartAlertReloadThread()
     {
@@ -167,7 +167,7 @@ public:
             m_reloadThread.join();
     }
 
-    // ===================== ä»æ•°æ®åº“è¯»å–é¢„è­¦å• =====================
+    // ===================== ´ÓÊı¾İ¿â¶ÁÈ¡Ô¤¾¯µ¥ =====================
     void ReloadAlertsFromDB()
     {
         try {
@@ -190,7 +190,7 @@ public:
                 a.symbol = res->getString("symbol");
                 a.max_price = res->getDouble("max_price");
                 a.min_price = res->getDouble("min_price");
-                a.trigger_time = res->getString("trigger_time");  // åŠ è½½æ—¶é—´å­—æ®µ
+                a.trigger_time = res->getString("trigger_time");  // ¼ÓÔØÊ±¼ä×Ö¶Î
                 a.state = res->getInt("state");
 
                 tmp[a.symbol].push_back(a);
@@ -205,7 +205,7 @@ public:
         }
     }
 
-    // ===================== æ›´æ–°æ•°æ®åº“çŠ¶æ€ï¼ˆè§¦å‘é¢„è­¦ï¼‰ =====================
+    // ===================== ¸üĞÂÊı¾İ¿â×´Ì¬£¨´¥·¢Ô¤¾¯£© =====================
     void MarkAlertTriggered(long orderId)
     {
         try {
@@ -217,13 +217,13 @@ public:
             stmt->execute();
         }
         catch (...) {
-            printf("[DB ERROR] æ›´æ–°é¢„è­¦çŠ¶æ€å¤±è´¥\n");
+            printf("[DB ERROR] ¸üĞÂÔ¤¾¯×´Ì¬Ê§°Ü\n");
             fflush(stdout);
         }
     }
 
     // =====================================================
-    // =============== 2. è¡Œæƒ… API ç›¸å…³ï¼ˆä½ åŸæ¥å°±æœ‰ï¼‰ ==========
+    // =============== 2. ĞĞÇé API Ïà¹Ø£¨ÄãÔ­À´¾ÍÓĞ£© ==========
     // =====================================================
     void connect()
     {
@@ -231,7 +231,7 @@ public:
         m_mdApi = CThostFtdcMdApi::CreateFtdcMdApi();
         m_mdApi->RegisterSpi(this);
 
-        // ä½¿ç”¨é…ç½®ä¸­çš„åœ°å€
+        // Ê¹ÓÃÅäÖÃÖĞµÄµØÖ·
         Config& cfg = Config::Instance();
         std::string addrStr = cfg.mdAddress;
         printf("Connecting to market data server: %s\n", addrStr.c_str());
@@ -242,10 +242,10 @@ public:
         printf("Market data API initialized\n");
         fflush(stdout);
 
-        // ä¸åœ¨è¿™é‡Œç›´æ¥è°ƒç”¨ ReqUserLoginï¼Œæ”¹åœ¨ OnFrontConnected ä¸­å¤„ç†ã€‚
+        // ²»ÔÚÕâÀïÖ±½Óµ÷ÓÃ ReqUserLogin£¬¸ÄÔÚ OnFrontConnected ÖĞ´¦Àí¡£
     }
 
-    // ä»ä¿ç•™ login æ¥å£ï¼šå¦‚æœå¤–éƒ¨è°ƒç”¨ï¼Œä¼šç­‰å¾…ç™»å½•æˆåŠŸï¼ˆæœ€é•¿ç­‰å¾…è‹¥å¹²ç§’ï¼‰
+    // ÈÔ±£Áô login ½Ó¿Ú£ºÈç¹ûÍâ²¿µ÷ÓÃ£¬»áµÈ´ıµÇÂ¼³É¹¦£¨×î³¤µÈ´ıÈô¸ÉÃë£©
     void login(int timeoutSeconds = 10)
     {
         int waited = 0;
@@ -267,9 +267,9 @@ public:
 
     void subscribe(const vector<string>& contracts)
     {
-        // ç­‰å¾…ç™»å½•ç¡®è®¤ï¼ˆç®€å•ç­‰å¾…ï¼Œé¿å…åœ¨æœªç™»å½•å‰è®¢é˜…ï¼‰
+        // µÈ´ıµÇÂ¼È·ÈÏ£¨¼òµ¥µÈ´ı£¬±ÜÃâÔÚÎ´µÇÂ¼Ç°¶©ÔÄ£©
         int waited = 0;
-        while (!m_isLoggedIn.load() && waited < 50) // 5 ç§’
+        while (!m_isLoggedIn.load() && waited < 50) // 5 Ãë
         {
             Sleep(100);
             waited++;
@@ -283,7 +283,7 @@ public:
         m_instruments = contracts;
         m_instrumentCStrs.clear();
 
-        // æ·»åŠ è¾“å‡ºï¼Œæ˜¾ç¤ºå³å°†è®¢é˜…çš„åˆçº¦
+        // Ìí¼ÓÊä³ö£¬ÏÔÊ¾¼´½«¶©ÔÄµÄºÏÔ¼
         printf("Subscribing to %zu instruments:\n", contracts.size());
         for (const auto& contract : contracts) {
             printf("  - %s\n", contract.c_str());
@@ -314,17 +314,17 @@ public:
     }
 
     // =====================================================
-    // =============== 3. è¡Œæƒ…å›è°ƒå¤„ç† ========================
+    // =============== 3. ĞĞÇé»Øµ÷´¦Àí ========================
     // =====================================================
 
-    // ç¡®è®¤ä¸å‰ç½®æœºå»ºç«‹è¿æ¥åè§¦å‘ï¼ˆåœ¨è¿™é‡Œå‘é€ç™»å½•è¯·æ±‚ï¼‰
+    // È·ÈÏÓëÇ°ÖÃ»ú½¨Á¢Á¬½Óºó´¥·¢£¨ÔÚÕâÀï·¢ËÍµÇÂ¼ÇëÇó£©
     void OnFrontConnected() override
     {
         m_isConnected = true;
         printf("OnFrontConnected: connected to front\n");
         fflush(stdout);
 
-        // å‘èµ·ç™»å½•è¯·æ±‚ï¼ˆä½¿ç”¨é…ç½®ï¼‰
+        // ·¢ÆğµÇÂ¼ÇëÇó£¨Ê¹ÓÃÅäÖÃ£©
         CThostFtdcReqUserLoginField req = { 0 };
 
         Config& cfg = Config::Instance();
@@ -352,7 +352,7 @@ public:
         fflush(stdout);
     }
 
-    // ç™»å½•å“åº”
+    // µÇÂ¼ÏìÓ¦
     void OnRspUserLogin(CThostFtdcRspUserLoginField* pRspUserLogin,
         CThostFtdcRspInfoField* pRspInfo,
         int nRequestID, bool bIsLast) override
@@ -372,7 +372,7 @@ public:
         m_isLoggedIn = true;
     }
 
-    // è®¢é˜…/é€€è®¢çš„å“åº”ï¼ˆåªæ˜¯æ‰“å°ç¡®è®¤ï¼‰
+    // ¶©ÔÄ/ÍË¶©µÄÏìÓ¦£¨Ö»ÊÇ´òÓ¡È·ÈÏ£©
     void OnRspSubMarketData(CThostFtdcSpecificInstrumentField* pSpecificInstrument,
         CThostFtdcRspInfoField* pRspInfo,
         int nRequestID, bool bIsLast) override
@@ -390,7 +390,7 @@ public:
         fflush(stdout);
     }
 
-    // è¡Œæƒ…ä¸‹å‘å›è°ƒ
+    // ĞĞÇéÏÂ·¢»Øµ÷
     void OnRtnDepthMarketData(CThostFtdcDepthMarketDataField* d) override
     {
         if (!d) return;
@@ -401,22 +401,22 @@ public:
 
         string symbol = d->InstrumentID;
         double price = d->LastPrice;
-        // æ”¹ä¸ºå¸¦æ¢è¡Œå¹¶ç«‹å³ flushï¼Œé¿å…ç¼“å†²å¯¼è‡´çœ‹ä¸åˆ°è¾“å‡º
-        //printf("æˆåŠŸå¯åŠ¨é¢„è­¦ç¨‹åº-ç¼“å­˜\n");
+        // ¸ÄÎª´ø»»ĞĞ²¢Á¢¼´ flush£¬±ÜÃâ»º³åµ¼ÖÂ¿´²»µ½Êä³ö
+        //printf("³É¹¦Æô¶¯Ô¤¾¯³ÌĞò-»º´æ\n");
         //fflush(stdout);
-        // æ›´æ–°è¡Œæƒ…ç¼“å­˜
+        // ¸üĞÂĞĞÇé»º´æ
         {
             lock_guard<mutex> lk(m_priceMutex);
             m_lastPrices[symbol] = price;
         }
 
-        // æ‰§è¡Œé¢„è­¦åˆ¤æ–­
+        // Ö´ĞĞÔ¤¾¯ÅĞ¶Ï
         CheckAlert(symbol, price);
     }
 
-    // æ ¹æ® symbol å’Œ price åˆ¤æ–­é¢„è­¦
+    // ¸ù¾İ symbol ºÍ price ÅĞ¶ÏÔ¤¾¯
 
-    // æ ¹æ® symbol å’Œ price åˆ¤æ–­é¢„è­¦
+    // ¸ù¾İ symbol ºÍ price ÅĞ¶ÏÔ¤¾¯
     void CheckAlert(const string& symbol, double price)
     {
         vector<AlertOrder> alerts;
@@ -426,17 +426,17 @@ public:
             auto it = m_alertMap.find(symbol);
             if (it == m_alertMap.end())
                 return;
-            alerts = it->second; // æ‹·è´ï¼Œé¿å…é•¿æ—¶é—´æŒé”
+            alerts = it->second; // ¿½±´£¬±ÜÃâ³¤Ê±¼ä³ÖËø
         }
 
-        // è®°å½•å·²è§¦å‘çš„ orderIdï¼Œå¾ªç¯ç»“æŸååœ¨å†…å­˜ä¸­åˆ é™¤å®ƒä»¬
+        // ¼ÇÂ¼ÒÑ´¥·¢µÄ orderId£¬Ñ­»·½áÊøºóÔÚÄÚ´æÖĞÉ¾³ıËüÃÇ
         vector<long> triggeredIds;
         triggeredIds.reserve(4);
 
-        // è·å–å½“å‰æ—¶é—´ - ä½¿ç”¨å®‰å…¨çš„ localtime_s
+        // »ñÈ¡µ±Ç°Ê±¼ä - Ê¹ÓÃ°²È«µÄ localtime_s
         time_t now = time(0);
         tm local_tm = { 0 };
-        localtime_s(&local_tm, &now);  // ä½¿ç”¨ localtime_s æ›¿ä»£ localtime
+        localtime_s(&local_tm, &now);  // Ê¹ÓÃ localtime_s Ìæ´ú localtime
         char time_buffer[20];
         strftime(time_buffer, sizeof(time_buffer), "%Y-%m-%d %H:%M:%S", &local_tm);
         string current_time_str = string(time_buffer);
@@ -446,21 +446,21 @@ public:
             bool triggered = false;
             string reason;
 
-            // ä»·æ ¼é¢„è­¦åˆ¤æ–­
+            // ¼Û¸ñÔ¤¾¯ÅĞ¶Ï
             if (a.max_price > 0 && price >= a.max_price) {
                 triggered = true;
-                reason = ">= ä¸Šé™ " + to_string(a.max_price);
+                reason = ">= ÉÏÏŞ " + to_string(a.max_price);
             }
             if (a.min_price > 0 && price <= a.min_price) {
                 triggered = true;
-                reason = "<= ä¸‹é™ " + to_string(a.min_price);
+                reason = "<= ÏÂÏŞ " + to_string(a.min_price);
             }
 
             if (!a.trigger_time.empty()) {
-                // è§£æé¢„è­¦æ—¶é—´
+                // ½âÎöÔ¤¾¯Ê±¼ä
                 tm trigger_tm = { 0 };
 
-                // ä½¿ç”¨ sscanf_s æ›¿ä»£ sscanf
+                // Ê¹ÓÃ sscanf_s Ìæ´ú sscanf
                 int result = sscanf_s(a.trigger_time.c_str(), "%d-%d-%d %d:%d:%d",
                     &trigger_tm.tm_year, &trigger_tm.tm_mon, &trigger_tm.tm_mday,
                     &trigger_tm.tm_hour, &trigger_tm.tm_min, &trigger_tm.tm_sec);
@@ -474,23 +474,23 @@ public:
 
                     if (current_time_t >= trigger_time_t) {
                         triggered = true;
-                        reason = "åˆ°è¾¾é¢„å®šæ—¶é—´ " + a.trigger_time;
+                        reason = "µ½´ïÔ¤¶¨Ê±¼ä " + a.trigger_time;
                     }
                 }
             }
 
             if (triggered)
             {
-                // å…ˆé€šçŸ¥å¹¶åœ¨ DB æ ‡è®°
+                // ÏÈÍ¨Öª²¢ÔÚ DB ±ê¼Ç
                 m_notifier->Notify(a.account, symbol, price, reason);
                 MarkAlertTriggered(a.orderId);
 
-                // ç«‹å³è®°å½•ï¼Œéœ€è¦åœ¨å†…å­˜ä¸­ç§»é™¤ï¼Œé¿å…çŸ­æ—¶é—´é‡å¤è§¦å‘
+                // Á¢¼´¼ÇÂ¼£¬ĞèÒªÔÚÄÚ´æÖĞÒÆ³ı£¬±ÜÃâ¶ÌÊ±¼äÖØ¸´´¥·¢
                 triggeredIds.push_back(a.orderId);
             }
         }
 
-        // å¦‚æœæœ‰è§¦å‘é¡¹ï¼Œç§»é™¤å†…å­˜ç¼“å­˜ä¸­çš„å¯¹åº”æ¡ç›®ï¼ˆçº¿ç¨‹å®‰å…¨ï¼‰
+        // Èç¹ûÓĞ´¥·¢Ïî£¬ÒÆ³ıÄÚ´æ»º´æÖĞµÄ¶ÔÓ¦ÌõÄ¿£¨Ïß³Ì°²È«£©
         if (!triggeredIds.empty())
         {
             lock_guard<mutex> lk(m_alertMutex);
@@ -509,7 +509,7 @@ public:
         }
     }
 
-    // è·å–æœ€æ–°ä»·ï¼ˆç”¨äºå¿ƒè·³æ‰“å°ï¼‰
+    // »ñÈ¡×îĞÂ¼Û£¨ÓÃÓÚĞÄÌø´òÓ¡£©
     bool GetLastPrice(const string& ins, double& out)
     {
         lock_guard<mutex> lk(m_priceMutex);
